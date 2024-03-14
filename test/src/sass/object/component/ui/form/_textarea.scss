@@ -1,0 +1,54 @@
+// テキストエリアのコンポーネント
+// js-autoResize-textareaを付与すると自動高さ調整
+// data属性で最大値の指定可能data-max-height="300"
+// <div class="c-ui-form-textarea">
+//   <textarea class="c-ui-form-textarea__input js-autoResize-textarea" data-max-height="300"></textarea>
+// </div>
+
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+@use "src/sass/foundation/mixin/mixin" as *;
+
+
+.c-ui-form-textarea {
+  font-size: 10px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.c-ui-form-textarea__input {
+  top: 0;
+  display: block;
+  appearance: none;
+  width: 100%;
+  min-height: 200px;
+  background-color: transparent;
+  padding: 1em;
+  border: 1px solid $color-form-input-gray02;
+  border-radius: 5px;
+  font-size: 1.4em;
+  line-height: 1.5;
+  overflow: hidden;
+  transition: background-color .3s;
+  color: $color-form-input-text;
+  &.-height-s {
+    min-height: 100px;
+  }
+  &.js-autoResize-textarea {
+    resize: none;
+  }
+  
+
+  @include placeholder() {
+    color: $color-form-input-gray02;
+  }
+
+  &:focus {
+    border-color: $color-form-input-active;
+    box-shadow: 0 0 0 1px $color-form-input-active inset;
+    outline: none; // フォーカスリングはbox-shadowで作るのでoutlineは無効化する
+  }
+}

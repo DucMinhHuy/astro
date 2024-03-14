@@ -1,0 +1,35 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+@mixin img() {
+  img {
+		display: block;
+		margin: 55px auto 0 auto;
+		max-width: 100%;
+		height: auto;
+		@include max-screen($sp) {
+			margin-top: 35px;
+		}
+	}
+	p {
+		img {
+			margin-top: 0;
+		}
+	}
+	figure {
+		text-align: center;
+		figcaption {
+			margin-top: 16px;
+			@include font-size(14px);
+			line-height: 1;
+			text-align: center;
+			color: $color-gray-900;
+			// color: #aaa;
+			@include max-screen($sp) {
+				@include font-size(12px);
+			}
+		}
+	}
+}

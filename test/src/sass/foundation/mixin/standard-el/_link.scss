@@ -1,0 +1,6 @@
+@mixin link() {
+  a {
+    color: $color-main;
+    text-decoration: underline;
+  }
+}

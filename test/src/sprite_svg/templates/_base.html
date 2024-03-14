@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>SVG Sprite List</title>
+    <link href="./sample.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <%= inlineSvg %>
+    <h1 class="title">SVG Sprite List</h1>
+    <div class="items">
+        <% _.each(symbols, function(symbol) { %>
+            <div class="item">
+                <div class="item__svgWrap">
+                    <svg pointer-events="none">
+                        <use xlink:href="#<%= symbol.id %>"></use>
+                    </svg>
+                </div>
+                <p class='item__id'><%= symbol.id %></p>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>

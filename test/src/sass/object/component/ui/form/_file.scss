@@ -1,0 +1,45 @@
+// ファイル添付のコンポーネント
+// <div class="c-ui-form-file js-flie-output-fileName">
+//   <input id="file" class="c-ui-form-file__input" type="file" name="file">
+//   <label class="c-ui-form-file__select" for="file">
+//     <span class="c-ui-form-file__select-text">ファイルを選択する</span>
+//   </label>
+// </div>
+
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+@use "src/sass/foundation/mixin/visually-hidden" as *;
+
+.c-ui-form-file {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 10px;
+}
+
+.c-ui-form-file__input {
+  @include visually-hidden();
+}
+
+.c-ui-form-file__select {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.c-ui-form-file__select-text {
+  font-size: 1.4em;
+}
+
+.__js-fileName {
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-left: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: $color-main-base;
+}

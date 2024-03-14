@@ -1,0 +1,40 @@
+@mixin pcOnly ($pcOnlyClass: ".ua-pc") {
+	@at-root #{$pcOnlyClass" " + &} {
+		@content
+	}
+}
+
+
+
+
+.sp-only {
+	display: none !important;
+}
+
+.tb-only {
+	display: none !important;
+}
+.tb-none {
+	display: block !important;
+}
+
+@media only screen and (max-width: 1024px) {
+	.tb-only {
+		display: block !important;
+	}
+	.tb-none {
+		display: none !important;
+	}
+	.pc-only2 {
+		display: none !important;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.pc-only {
+		display: none !important;
+	}
+	.sp-only {
+		display: block !important;
+	}
+}

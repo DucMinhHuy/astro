@@ -1,0 +1,35 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+.l-section {
+	padding: 0 40px;
+	&.-first {
+		padding-top: 50px;
+	}
+	&.-last {
+		padding-bottom: 100px;
+	}
+	@include max-screen($sp-s) {
+		padding: 0 15px;
+	}
+	+ .l-section {
+		margin-top: 100px;
+	}
+} //-section
+
+.l-section__inner {
+	max-width: 1000px;
+	width: 100%;
+  margin: 0 auto;
+  &.-content-full {
+    max-width: inherit;
+  }
+}
+
+.l-section-side {
+  + * {
+    margin-top: 20px;
+  }
+} //l-section-side

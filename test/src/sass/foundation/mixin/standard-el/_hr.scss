@@ -1,0 +1,7 @@
+@mixin hr() {
+  hr,.wp-block-separator {
+    border: 1px solid $color-gray-500;
+    border-color: $color-gray-500;
+    margin: 64px 0;
+  }
+}

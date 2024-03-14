@@ -1,0 +1,28 @@
+<header class="l-header">
+	<h1 class="l-header__logo">
+		<a href="/">
+			<img src="/assets/img/common/logo.png" alt="ロゴ">
+		</a>
+	</h1>
+
+	header
+
+	<!-- スマホメニューを開くボタン -->
+	<button class="fullScreenMenu-button" type="button" data-fullScreenMenu-trigger="js-fullScreenMenu-content" aria-label="メニューを開く">
+		<span class="fullScreenMenu-button__line"></span>
+		<span class="fullScreenMenu-button__line"></span>
+		<span class="fullScreenMenu-button__line"></span>
+	</button>
+
+</header><!-- /#globalHeader -->
+
+
+<!-- スマホメニュー本体 -->
+<div id="js-fullScreenMenu-content" class="fullScreenMenu-content">
+  <div class="fullScreenMenu-content__inner">
+		<!-- ここにスマホメニュー内容を記述 -->
+    <p>SPメニュー</p>
+		<!-- data-fullScreenMenu-trigger="js-fullScreenMenu-content"を付与するとメニューを閉じることが可能 -->
+		<button data-fullScreenMenu-trigger="js-fullScreenMenu-content">メニューを閉じる</button>
+  </div>
+</div>

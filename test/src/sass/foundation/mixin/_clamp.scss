@@ -1,0 +1,10 @@
+@use "sass:math";
+@use "src/sass/foundation/functions/remove-unit" as *;
+@mixin clamp($property,$fs_min, $width_small, $width_large, $fs_max) {
+  $preferred_vw_base: math.div(($fs_max - $fs_min), ($width_large - $width_small));
+  $preferred_vw: ($preferred_vw_base * 100) * 1vw;
+  $preferred_rem: ($width_small * -1 * $preferred_vw_base + $fs_min) * .1rem;
+  $fs_min_rem: (math.div(remove-unit($fs_min), remove-unit(16px))) * 1rem;
+  $fs_max_rem: (math.div(remove-unit($fs_max), remove-unit(16px))) * 1rem;
+  #{$property}: clamp($fs_min_rem, $preferred_rem + $preferred_vw, $fs_max_rem);
+}

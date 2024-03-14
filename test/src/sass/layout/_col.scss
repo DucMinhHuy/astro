@@ -1,0 +1,11 @@
+@use "src/sass/foundation/mixin/col" as *;
+
+.l-col {
+	display: flex;
+	flex-wrap: wrap;
+	.l-col-content {
+		@include replace(".l-col", ".l-col.is-col--2") {
+			@include col(2, 0, 0, '.l-col');
+		}
+	}
+}

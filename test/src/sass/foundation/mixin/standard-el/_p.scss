@@ -1,0 +1,22 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+//ベース
+@mixin p_origin($fz, $lh) {
+  @include font-size($fz);
+  line-height: #{$lh};
+  word-break: break-all;
+}
+
+//呼び出し
+@mixin p($fz: 15, $lh: 2, $origin: 0) {
+  @if $origin == 0  {
+    p {
+      @include p_origin($fz, $lh);
+    }
+  } @else {
+    @include p_origin($fz, $lh);
+  }
+}

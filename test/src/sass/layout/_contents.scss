@@ -1,0 +1,63 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/state" as *;
+
+.l-contents {
+  position: relative;
+  background-color: $color-white;
+  z-index: 99;
+} //contents
+
+.l-contents-detail {
+  position: relative;
+  z-index: 1;
+  @include state(".l-contents", ".-col--1") {
+    //1カラムの場合
+  }
+  @include state(".l-contents", ".-col--1.-top") {
+    //1カラムの場合 トップページ用
+  }
+  //2カラムの場合
+  @include state(".l-contents", ".-col--2") {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1320px;
+    margin: 0 auto;
+    @include max-screen($sp) {
+      display: block;
+    }
+  }
+} //contents-detail
+
+.l-main {
+  overflow: hidden;
+  @include state(".l-contents", ".-col--1") {
+    width: 100%;
+  }
+  @include state(".l-contents", ".-col--1.-mainSize--s") {
+    max-width: 980px;
+  }
+  @include state(".l-contents", ".-col--1.-top") {
+    width: 100%;
+  }
+  @include state(".l-contents", ".-col--2") {
+    width: 100%;
+    max-width: 920px;
+    margin-right: 30px;
+    @include max-screen($sp) {
+      margin: 0 auto;
+    }
+  }
+  // @include max-screen($sp) {
+  // 	margin: 0 auto;
+  // 	width: calc(100% - 30px);
+  // }
+} //main
+
+.l-sub {
+  @include state(".l-contents", ".-col--2") {
+    width: 280px;
+    @include max-screen($sp) {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+#wpmem_restricted_msg {
+  // @include p();
+  font-weight: 500;
+}
+
+#wpmem_login {
+  max-width: 900px;
+  @include p();
+  @include spacer();
+  @include input();
+  fieldset {
+    padding: 30px!important;
+    border: 1px solid #ffffff!important;
+    background: #f3f6f9!important;
+  }
+  legend {
+    display: none;
+  }
+  form {
+    label {
+      display: block;
+      @include font-size(14px);
+      padding: 0!important;
+      height: auto!important;
+      float: none!important;
+      font-family: "Lato","Noto Sans JP","ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif!important;
+    }
+    .div_text {
+      margin: 10px 0 20px;
+      padding: 0!important;
+      width: auto!important;
+      float: none!important;
+      > input {
+        background: $color-white !important;
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+  }
+  .button_div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    float: none!important;
+    text-align: left!important;
+    padding: 0!important;
+    label[for="rememberme"] {
+      width: 60%;
+    }
+    input[type="checkbox"]:checked:before {
+      content: none;
+    }
+    input[type="submit"] {
+      width: 40%;
+      margin: 20px auto 0;
+      padding: 11px 10px;
+      @include font-size(16px);
+      line-height: 2;
+      font-weight: 500;
+      color: $color-white;
+      background: $color-main;
+      background-image: linear-gradient(
+        to right,
+        #2b7ec1 18.2%,
+        #6eafbb 89.18%
+      );
+      border-radius: 30px;
+      outline: 0;
+      appearance: none;
+      border: none;
+      @include max-screen($sp) {
+        width: 100%;
+      }
+      &:hover {
+        @include min-screen($sp + 1px) {
+          background-position: left 100% center;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+@use "src/sass/foundation/mixin/replace" as *;
+@use "src/sass/foundation/mixin/mixin" as *;
+
+@mixin table() {
+	.wp-block-table {
+		margin: 24px 0;
+    // overflow-x: auto;
+	}
+  table {
+		width: 100%;
+		border-spacing: 0;
+    empty-cells: show;
+		border-collapse: collapse;
+		border: solid 1px $color-gray-100;
+		max-width: 100%;
+    overflow: hidden;
+		@include replace("table",".is-style-stripes table") {
+			border-width: 0;
+		}
+		&.has-fixed-layout {
+			table-layout:fixed;
+		}
+		.cell-align--left {
+			text-align: left;
+		}
+		.cell-align--center {
+			text-align: center;
+		}
+		.cell-align--right {
+			text-align: right;
+		}
+		.cell-valign--top {
+			vertical-align: top;
+		}
+		.cell-valign--middle {
+			vertical-align: middle;
+		}
+		.cell-valign--bottom {
+			vertical-align: bottom;
+		}
+		.cell-fontSize--s {
+			@include font-size(12px);
+		}
+		.icon {
+			position: absolute;
+			left:50%;
+			width: 30px;
+			height: 30px;
+			display: inline-block;
+			vertical-align: middle;
+			@include transform-translate(-50%,-50%);
+			@include max-screen($tb) {
+				width:20px;
+				height: 20px;
+			}
+			.svg-cross {
+				position: absolute;
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+				svg {
+					@include svg-color(#333);
+				}
+			}//svg-cross
+			.svg-circle {
+				position: absolute;
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+				svg {
+					@include svg-color(#F3718F);
+				}
+			}//svg-circle
+			.svg-triangle {
+				position: absolute;
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+				svg {
+					@include svg-color(#F57F0D);
+				}
+			}//svg-triangle
+		}//icon
+		.notice {
+			position: relative;
+			padding: 5px 0 5px 20px;
+			display: inline-block;
+			vertical-align: middle;
+			width: 85%;
+			.text {
+				@include font-size(18px);
+			}
+		}
+		.txt-small {
+			display: block;
+			margin-top: 30px;
+		}
+		small {
+			@include font-size(10px);
+		}
+		a {
+			text-decoration: none;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+		tr {
+			th,td {
+				overflow: visible;
+				@include font-size(15px);
+				line-height: 1.6;
+				margin: 0;
+				overflow: visible;
+				padding: 8px 10px;
+				border: solid 1px $color-gray-100;
+				@include replace("table",".is-style-stripes table") {
+					border-width: 0;
+				}
+				@include max-screen($sp) {
+					@include font-size(14px);
+				}
+			}
+		}
+		thead {
+			th {
+				background: $color-main-base03;
+				border-color: $color-white;
+				font-weight: 500;
+			}
+		}
+		tbody {
+			tr {
+				@include replace("table",".is-style-stripes table") {
+					&:nth-child(odd) {
+						td {
+							background: $color-gray-700;
+						}
+					}
+				}
+			}
+		}
+	}//table
+
+  .is-scroll {
+		@include max-screen($tb) {
+			overflow-x: scroll;
+			-webkit-overflow-scrolling: touch;
+			padding-bottom: 5px;
+			&::-webkit-scrollbar{
+				height:5px;
+			}//バーの太さ
+			&::-webkit-scrollbar-track{
+				background: #f2f2f2;
+				border-radius: 5px;
+			}//バーの背景色
+			&::-webkit-scrollbar-thumb{
+				background:#2cc2e4;
+				border-radius: 5px;
+			}//バーの色
+			table {
+				width: 150%;
+				@include replace(".is-scroll", ".is-scroll.is-scroll-width--x2") {
+					width: 200%;
+				}
+				@include replace(".is-scroll", ".is-scroll.is-scroll-width--x2-1") {
+					width: 210%;
+				}
+				@include replace(".is-scroll", ".is-scroll.is-scroll-width--x2-2") {
+					width: 220%;
+				}
+				@include replace(".is-scroll", ".is-scroll.is-scroll-width--x2-3") {
+					width: 230%;
+				}
+				@include replace(".is-scroll", ".is-scroll.is-scroll-width--x2-4") {
+					width: 240%;
+				}
+				@include replace(".is-scroll", ".is-scroll.is-scroll-width--x2-5") {
+					width: 250%;
+				}
+				@include replace(".is-scroll", ".is-scroll.is-scroll-width--x3") {
+					width: 300%;
+				}
+			}
+		}
+	}//is-scroll
+}

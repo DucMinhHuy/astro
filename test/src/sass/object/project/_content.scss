@@ -1,0 +1,10 @@
+@use "src/sass/inc/foundation/index" as *;
+@use "src/sass/inc/layout/index" as *;
+@use "src/sass/inc/structure/index" as *;
+
+.p-content {
+	padding: 0 30px;
+	@include max-screen($sp) {
+		padding: 0 10px;
+	}
+}//p-content

@@ -1,0 +1,17 @@
+@use "src/sass/inc/foundation/index" as *;
+@use "src/sass/inc/layout/index" as *;
+@use "src/sass/inc/structure/index" as *;
+
+//蛍光ペンのような効果
+.u-highlighter {
+	display: inline-block;
+	padding: 1px 5px;
+	line-height: 1.4;
+	&.is-red {
+    background: #e60012;
+    color: #FFF;
+	}
+	&.is-yellow {
+    background: #FFFF4D;
+	}
+}//u-highlighter

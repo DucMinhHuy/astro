@@ -1,0 +1,34 @@
+@mixin input() {
+  input[type="text"],
+  input[type="password"] {
+    border: none;
+    background: #f8f8f8;
+    height: 45px;
+    padding: 8px 10px;
+    max-width: 430px;
+    width: 100%;
+    font-size: 16px;
+    .custom-wpcf7c-confirmed & {
+      background-color: transparent !important;
+      padding: 0;
+      height: auto;
+    }
+    &::placeholder {
+      .custom-wpcf7c-confirmed & {
+        color: transparent;
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 1000px #e8eff7 inset;
+    }
+    @include max-screen(screen("md")) {
+      font-size: 14px;
+    }
+    &.is-min {
+      max-width: 60px;
+    }
+  }
+}

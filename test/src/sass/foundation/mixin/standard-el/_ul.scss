@@ -1,0 +1,59 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+//ベース
+@mixin ul_origin() {
+  // padding: 24px 32px;
+  // border: 1px solid $color-gray-100;
+  > li {
+    position: relative;
+    @include font-size(15px);
+    line-height: 1.4;
+    counter-increment:num;
+    padding-left: 15px;
+    > ul {
+      padding-left: 18px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      counter-reset:num;
+      > li {
+        counter-increment:num;
+
+      }
+      > ul {
+        padding-left: 22px;
+      }
+    }
+  }//li
+  li {
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 0.8em;
+      margin-top: -2px;
+      content: "";
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 2px;
+      background: $color-main;
+      background: linear-gradient(180deg, #2B7EC1 25%, #6EAFBB 100%);
+    }
+  }
+}
+
+//呼び出し
+@mixin ul($origin: 0) {
+  @if $origin == 0  {
+    ul {
+      @include ul_origin();
+    }
+  } @else {
+    @include ul_origin();
+  }
+}

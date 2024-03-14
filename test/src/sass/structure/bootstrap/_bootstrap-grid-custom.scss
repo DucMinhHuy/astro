@@ -1,0 +1,183 @@
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-4-5,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-4-5,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-4-5,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-xs-1,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-4-5,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.container,
+.container-fluid {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+@media (max-width: 576px) {
+  .no-sm-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .no-md-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .no-lg-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .no-xl-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media (max-width: 576px) {
+  .no-sm-gutters > .col,
+  .no-sm-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .no-md-gutters > .col,
+  .no-md-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .no-lg-gutters > .col,
+  .no-lg-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .no-xl-gutters > .col,
+  .no-xl-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container-sm,
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 897px) {
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 920px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 1300px;
+  }
+}

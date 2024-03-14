@@ -1,0 +1,49 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+@mixin ol() {
+  ol {
+    // padding: 24px 32px;
+    // border: 1px solid $color-gray-100;
+    > li {
+      position: relative;
+      @include font-size(15px);
+      line-height: 1.4;
+      counter-increment: num;
+      padding-left: 22px;
+      ol {
+        padding-left: 22px;
+        margin-bottom: 10px;
+				margin-top: 10px;
+        counter-reset: num;
+        > li {
+          counter-increment: num;
+        }
+        ol {
+          padding-left: 22px;
+        }
+      }
+    } //li
+  } //ol
+  ol {
+    li {
+			&:not(:first-child) {
+				margin-top: 10px;
+			}
+      &:before {
+        content: counter(num)".";
+        position: absolute;
+        left: 2px;
+        top: 0.2em;
+        display: block;
+        font-weight: 500;
+        @include font-size(15px);
+        line-height: 1;
+        color: $color-main;
+        background: none !important;
+      }
+    }
+  } //ol
+}

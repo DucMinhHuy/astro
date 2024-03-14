@@ -1,0 +1,16 @@
+@use "sass:math";
+@use "src/sass/foundation/mixin/font-size" as *;
+
+//@include myfont("\EA01", 13px, #000)
+@mixin myfont($code, $size, $color: $text-color){
+	display: block;
+	content: "#{$code}";
+	font-family: "myfont";
+	color: #{$color};
+	@if math.div($size, 1px) >= 10  {
+		@include font-size($size);
+	} @else {
+		@include font-size(10px);
+		transform: scale(#{math.div($size, 10px)});
+	}
+}

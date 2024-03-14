@@ -1,0 +1,45 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+.l-main {
+  // overflow: hidden;
+  color: aqua;
+  @include min-screen(1441px) {
+    // overflow-y: hidden;
+  }
+  @include state(".l-contents", ".-col--1") {
+    width: 100%;
+  }
+  @include state(".l-contents", ".-col--1.-mainSize--s") {
+    max-width: 980px;
+  }
+  @include state(".l-contents", ".-col--1.-top") {
+    width: 100%;
+  }
+  @include state(".l-contents", ".-col--2") {
+    flex: 1;
+    margin-left: 56px;
+    padding-top: 44px;
+    width: calc(100% - 266px);
+    @include max-screen($sp) {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+  @include state(".l-contents", ".-col--2.-top") {
+    flex: 1;
+    margin-left: 20px;
+    padding-top: 0;
+    width: calc(100% - 100px);
+    @include max-screen($sp) {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+  // @include max-screen($sp) {
+  // 	margin: 0 auto;
+  // 	width: calc(100% - 30px);
+  // }
+} //main

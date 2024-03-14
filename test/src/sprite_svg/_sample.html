@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>SVG Sprite List</title>
+    <link href="./sample.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none;"><symbol id="svg-arrow01_left" viewBox="0 0 7 10"><path d="M-.012 5l5.231 5L7 8.3 3.54 5 7 1.7 5.224 0 1.769 3.3z" fill-rule="evenodd"/></symbol><symbol id="test" viewBox="0 0 7 10"><path d="M-.012 5l5.231 5L7 8.3 3.54 5 7 1.7 5.224 0 1.769 3.3z" fill-rule="evenodd"/></symbol></svg>
+    <h1 class="title">SVG Sprite List</h1>
+    <div class="items">
+        
+            <div class="item">
+                <div class="item__svgWrap">
+                    <svg pointer-events="none">
+                        <use xlink:href="#svg-arrow01_left"></use>
+                    </svg>
+                </div>
+                <p class='item__id'>svg-arrow01_left</p>
+            </div>
+            
+            <div class="item">
+                <div class="item__svgWrap">
+                    <svg pointer-events="none">
+                        <use xlink:href="#test"></use>
+                    </svg>
+                </div>
+                <p class='item__id'>test</p>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

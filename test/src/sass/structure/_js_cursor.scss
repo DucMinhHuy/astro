@@ -1,0 +1,51 @@
+.js-cursor {
+  opacity: 1;
+  // transition: opacity 1s;
+  // &.is-windowOut {
+  //   opacity: 0;
+  // }
+}
+
+.js-cursor__main {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+  z-index: 1001;
+  opacity: 0;
+  transition: opacity .2s;
+  .is-moved & {
+    opacity: 1;
+  }
+  .is-outside & {
+    opacity: 0;
+  }
+  // transition: all .2s;
+}
+.js-cursor__option {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ddd;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity .2s .2s, background .2s;
+  .is-moved & {
+    opacity: 0.5;
+  }
+  .is-outside & {
+    opacity: 0;
+  }
+  .is-hover & {
+    background: #00FFFF;
+  }
+  // transition: all .2s;
+}

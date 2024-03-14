@@ -1,0 +1,207 @@
+@use "src/sass/inc/foundation/index" as *;
+
+//カテゴリーナビ
+$fullScreenMenu_duration: 0.3s;
+.fullScreenMenu-button {
+  @include reset-button();
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: solid 1px #ddd;
+  cursor: pointer;
+  z-index: 1001;
+  &.is-open {
+    // background: #002241;
+  }
+}
+
+.fullScreenMenu-button__line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #000;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -10px;
+  margin-top: -1px;
+  transition: width 0.2s, right 0.2s, left 0.2s;
+
+  &:nth-child(1) {
+    transform: translateY(-5px);
+  }
+  &:nth-child(2) {
+    transition: $fullScreenMenu_duration opacity;
+    opacity: 1;
+  }
+  &:nth-child(3) {
+    transform: translateY(5px);
+  }
+
+  .fullScreenMenu-button.is-open & {
+    &:nth-child(1) {
+      animation: button-line-open-top $fullScreenMenu_duration;
+      animation-fill-mode: forwards;
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+      transition: $fullScreenMenu_duration opacity;
+    }
+
+    &:nth-child(3) {
+      animation: button-line-open-bottom $fullScreenMenu_duration;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .fullScreenMenu-button.is-close & {
+    &:nth-child(1) {
+      animation: button-line-close-top $fullScreenMenu_duration;
+      animation-fill-mode: forwards;
+    }
+
+    &:nth-child(2) {
+      opacity: 1;
+      transition: $fullScreenMenu_duration opacity;
+    }
+
+    &:nth-child(3) {
+      animation: button-line-close-bottom $fullScreenMenu_duration;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes button-line-close-top {
+  0% {
+    transform: translateY(0px) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+}
+
+@keyframes button-line-close-bottom {
+  0% {
+    transform: translateY(0px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(5px) rotate(0deg);
+  }
+}
+
+@keyframes button-line-open-top {
+  0% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-45deg);
+  }
+}
+
+@keyframes button-line-open-bottom {
+  0% {
+    transform: translateY(5px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(45deg);
+  }
+}
+
+.fullScreenMenu-content {
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1000;
+  @include state(".fullScreenMenu-content", ".is-close") {
+    transition: opacity $fullScreenMenu_duration,
+      visibility $fullScreenMenu_duration, transform $fullScreenMenu_duration;
+  }
+  @include state(".fullScreenMenu-content", ".is-open") {
+    transition: opacity $fullScreenMenu_duration,
+      visibility $fullScreenMenu_duration, transform $fullScreenMenu_duration;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes navigation-overlay-opened {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes navigation-overlay-closed {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fullScreenMenu-content__inner {
+  background-color: #fff;
+  margin: auto;
+  max-height: 100vh;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  @include font-size(16px);
+  // visibility: hidden;
+
+  .fullScreenMenu-content.is-close & {
+    transition: opacity $fullScreenMenu_duration,
+    visibility $fullScreenMenu_duration, transform $fullScreenMenu_duration;
+  }
+  
+  @include state2(".fullScreenMenu-content", ".is-open") {
+    transition: opacity $fullScreenMenu_duration,
+      visibility $fullScreenMenu_duration, transform $fullScreenMenu_duration;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes navigation-content-opened {
+  0% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes navigation-content-closed {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

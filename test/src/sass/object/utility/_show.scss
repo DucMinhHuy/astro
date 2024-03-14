@@ -1,0 +1,144 @@
+//画面サイズで表示・非表示切り替え
+@use "src/sass/inc/foundation/index" as *;
+@use "src/sass/inc/layout/index" as *;
+@use "src/sass/inc/structure/index" as *;
+
+.u-show--pc {
+	visibility: visible;
+	position: static;
+	@at-root {
+		#{ selector-replace(&, ".u-show--pc", "br.u-show--pc") } {
+			display: block;
+		}
+		#{ selector-replace(&, ".u-show--pc", "img.u-show--pc") } {
+			display: block;
+		}
+	}
+	@include max-screen($tb) {
+		visibility: hidden;
+		position: absolute;
+		@at-root {
+			#{ selector-replace(&, ".u-show--pc", "br.u-show--pc") } {
+				display: none;
+			}
+			#{ selector-replace(&, ".u-show--pc", "img.u-show--pc") } {
+				display: none;
+			}
+		}
+	}
+
+}
+.u-show--pc-tb {
+	visibility: visible;
+	position: static;
+	@at-root {
+		#{ selector-replace(&, ".u-show--pc-tb", "br.u-show--pc-tb") } {
+			display: block;
+		}
+		#{ selector-replace(&, ".u-show--pc-tb", "img.u-show--pc-tb") } {
+			display: block;
+		}
+	}
+	@include max-screen($sp) {
+		visibility: hidden;
+		position: absolute;
+		@at-root {
+			#{ selector-replace(&, ".u-show--pc-tb", "br.u-show--pc-tb") } {
+				display: none;
+			}
+			#{ selector-replace(&, ".u-show--pc-tb", "img.u-show--pc-tb") } {
+				display: none;
+			}
+		}
+	}
+}
+.u-show--tb {
+	visibility: hidden;
+	position: absolute;
+	@at-root {
+		#{ selector-replace(&, ".u-show--tb", "br.u-show--tb") } {
+			display: none;
+		}
+		#{ selector-replace(&, ".u-show--tb", "img.u-show--tb") } {
+			display: none;
+		}
+	}
+	@include max-screen($tb) {
+		visibility: visible;
+		position: static;
+		@at-root {
+			#{ selector-replace(&, ".u-show--tb", "br.u-show--tb") } {
+				display: block;
+			}
+			#{ selector-replace(&, ".u-show--tb", "img.u-show--tb") } {
+				display: block;
+			}
+		}
+	}
+}
+.u-show--sp {
+	visibility: hidden;
+	position: absolute;
+	@at-root {
+		#{ selector-replace(&, ".u-show--sp", "br.u-show--sp") } {
+			display: none;
+		}
+		#{ selector-replace(&, ".u-show--sp", "img.u-show--sp") } {
+			display: none;
+		}
+	}
+	@include max-screen($sp) {
+		visibility: visible;
+		position: static;
+		@at-root {
+			#{ selector-replace(&, ".u-show--sp", "br.u-show--sp") } {
+				display: block;
+			}
+			#{ selector-replace(&, ".u-show--sp", "img.u-show--sp") } {
+				display: block;
+			}
+		}
+	}
+}
+.u-show--sp_s {
+	visibility: hidden;
+	position: absolute;
+	@at-root {
+		#{ selector-replace(&, ".u-show--sp_s", "br.u-show--sp_s") } {
+			display: none;
+		}
+		#{ selector-replace(&, ".u-show--sp_s", "img.u-show--sp_s") } {
+			display: none;
+		}
+	}
+	@include max-screen($sp-s) {
+		visibility: visible;
+		position: static;
+		@at-root {
+			#{ selector-replace(&, ".u-show--sp_s", "br.u-show--sp_s") } {
+				display: block;
+			}
+			#{ selector-replace(&, ".u-show--sp_s", "img.u-show--sp_s") } {
+				display: block;
+			}
+		}
+	}
+}
+
+
+.u-show--ios {
+	display: none;
+	.ua-iphone & {
+		display: block;
+	}
+	.ua-ipad & {
+		display: block;
+	}
+}
+
+.u-show--android {
+	display: none;
+	.ua-android & {
+		display: block;
+	}
+}

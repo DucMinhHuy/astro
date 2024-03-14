@@ -1,0 +1,77 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+@use "src/sass/foundation/mixin/replace" as *;
+
+$megamenu-offset: 117px; //ヘッダーの高さなどを設定
+
+.megamenu-wrapper {
+}
+
+.megamenu-content {
+  display: block;
+  transition: all 0.5s ease, top 0.3s;
+  max-height: 0;
+  overflow: hidden;
+  @include min-screen($sp + 1px) {
+    position: absolute;
+    top: $megamenu-offset;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 0;
+    background: #e2eaf1;
+  }
+  @include max-screen($sp) {
+    position: static;
+  }
+  @include replace(
+    ".megamenu-content",
+    ".is-megaMenu--show .megamenu-content"
+  ) {
+    // visibility: visible;
+    max-height: 700px;
+    z-index: 1000;
+  }
+  @include replace(".megamenu-content", ".is-scrolled .megamenu-content") {
+    top: $megamenu-offset;
+  }
+}
+.megamenu-content-inner {
+  -webkit-transform: translate(0, -12px);
+  transform: translate(0, -12px);
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  @include replace(
+    ".megamenu-content-inner",
+    ".is-megaMenu--show .megamenu-content-inner"
+  ) {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+//メガメニューオープン時の全体背景
+body {
+  &:before {
+    content: "";
+    position: fixed;
+    top: $megamenu-offset;
+    left: 0;
+    height: calc(100% - $megamenu-offset);
+    width: 100%;
+    background: rgba(#fff, 0);
+    z-index: 100;
+    visibility: hidden;
+    transition: all 0.3s;
+    @include replace("body", "body.is-megaMenu--showPage") {
+      // display: block;
+      background: rgba(#000, 0.6);
+      visibility: visible;
+    }
+  }
+}

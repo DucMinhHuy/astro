@@ -1,0 +1,80 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+@use "src/sass/foundation/mixin/replace" as *;
+@use "src/sass/foundation/mixin/utility/reset-button" as *;
+//開発中のjsのcss
+//pageLevelFlag.jsで使用するcss
+.js-load {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 1000;
+  visibility: visible;
+  opacity: 1;
+  transition: all 1s;
+  @include replace(".js-load", ".js-load-normal .js-load") {
+    visibility: hidden;
+    opacity: 0;
+  }
+  @include replace(".js-load", ".js-load-down .js-load") {
+    visibility: hidden;
+    opacity: 0;
+  }
+  @include replace(".js-load", ".js-load-up .js-load") {
+    visibility: hidden;
+    opacity: 0;
+  }
+  @include replace(".js-load", ".js-next-down .js-load") {
+    visibility: visible;
+    opacity: 1;
+  }
+  @include replace(".js-load", ".js-next-up .js-load") {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+body {
+  // opacity: 0;
+  transition: all 1s;
+  // &.js-load-normal {
+  //   opacity: 1;
+  // }
+  &.js-next-down {
+    transform: scale(1.05);
+  }
+  &.js-next-up {
+    transform: scale(0.95);
+  }
+  &.js-load-down {
+    animation: down 1s;
+  }
+  &.js-load-up {
+    animation: up 1s;
+  }
+
+}
+
+@keyframes down {
+  0% {
+		transform: scale(0.95);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+@keyframes up {
+  0% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+//======================pageLevelFlag.jsで使用するcss

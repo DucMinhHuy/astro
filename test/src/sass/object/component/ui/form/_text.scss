@@ -1,0 +1,49 @@
+// テキストインプットのコンポーネントです。
+// <p class="c-ui-form-text">
+//   <input class="c-ui-form-text__input" type="text">
+// </p>
+ 
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+@use "src/sass/foundation/mixin/mixin" as *;
+
+.c-ui-form-text {
+  font-size: 10px;
+  position: relative;
+  z-index: 0;
+}
+
+.c-ui-form-text__input {
+  appearance: none;
+  width: 100%;
+  height: 2.5em;
+  background-color: transparent;
+  padding: 0 1em;
+  border: 1px solid $color-form-input-gray02;
+  border-radius: 5px;
+  font-size: 1.6em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: background-color .3s;
+  color: $color-form-input-text;
+
+  @include placeholder() {
+    color: $color-form-input-gray02;
+  }
+
+  &:focus {
+    border-color: $color-form-input-active;
+    box-shadow: 0 0 0 1px $color-form-input-active inset;
+    outline: none; // フォーカスリングはbox-shadowで作るのでoutlineは無効化する
+  }
+
+  // Google Chromeのオートコンプリート背景無効
+  &:-webkit-autofill {
+    transition-delay: 9999s;
+    transition-property: background-color;
+  }
+}
+

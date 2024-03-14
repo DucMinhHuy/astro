@@ -1,0 +1,31 @@
+@use "src/sass/foundation/mixin/mediaQueries" as *;
+@use "src/sass/foundation/mixin/myfont" as *;
+@use "src/sass/foundation/mixin/state" as *;
+@use "src/sass/foundation/variable/color" as *;
+
+.c-code__lang {
+  transform: translateY(100%);
+  line-height: 1.6;
+  display: block;
+  height: 0;
+  span {
+    display: inline-block;
+    color: #eee;
+    background-color: #777;
+    padding: 0 10px;
+  }
+  + code {
+    padding-top: 40px;
+  }
+}
+code {
+  padding: 15px 40px;
+  // margin-left: -40px;
+  // margin-right: -40px;
+  line-height: 1.6;
+  @include max-screen($sp-s) {
+    padding: 15px 20px;
+    // margin-left: -20px;
+    // margin-right: -20px;
+  }
+}

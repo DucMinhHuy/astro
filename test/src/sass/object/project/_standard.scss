@@ -1,0 +1,17 @@
+@use "src/sass/inc/foundation/index" as *;
+@use "src/sass/inc/layout/index" as *;
+@use "src/sass/inc/structure/index" as *;
+
+//hx p ul dl などのデフォルトスタイルが当たる名前空間
+.p-standard {
+	// @include wysiwyg($tb_break, $sp_break);
+	@include h();
+	@include p();
+	@include figure();
+	@include img();
+	@include dl();
+	@include ul();
+	@include ol();
+	@include table();
+	@include spacer();
+}//p-standard
